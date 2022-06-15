@@ -1,0 +1,150 @@
+
+button.register-submit {
+   background-color: #4CAF50;
+   color: #5A67B0;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+   width: 64px;
+}
+form.login-form {
+   border-radius: 5px;
+   height: 160px;
+   width: 36%;
+   background-color: #b0a6a6;
+   border-radius: 5px;
+   padding: 20px;
+   margin: 8px 0px 45px 30%;
+   box-sizing: border-box;
+   outline: none;
+   border: 3px solid rgb(29, 159, 186);
+   transition: 0.3s;
+}
+form.register-form{
+   border-radius: 5px;
+   height: 430px;
+   width: 36%;
+   background-color: #b0a6a6;
+   border-radius: 5px;
+   padding: 20px;
+   margin: 8px 0px 45px 30%;
+   box-sizing: border-box;
+   outline: none;
+   border: 3px solid rgb(29, 159, 186);
+   transition: 0.3s;
+}
+form.register-form > input{
+   height: auto;
+   padding: 6px 12px;
+   border: 3px solid rgb(29, 159, 186);
+   border-radius: 4px;
+   box-sizing: border-box;
+   margin-bottom: 16px;
+   margin-top: 6px;
+   outline: none;
+   padding: 12px 10px;
+   transition: 0.3s;
+   width: 68%;
+   cursor: text;
+}
+form.login-form > input::placeholder{
+   text-align: center;
+}
+form.login-form > input:focus{
+   border-radius: 5px;
+   width: 68%;
+   border-radius: 5px;
+   padding: 20px;
+   box-sizing: border-box;
+   outline: none;
+   transition: 0.3s;
+   text-align: center;
+   cursor: text;
+   border: 3px solid rgb(29, 159, 186);
+
+}
+form.login-form > label{
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 16%;
+   font-size: 18px;
+   color: #5A67B0;
+}
+form.login-form > button[type=submit]{
+   background-color: #4775f2 ;
+   color: #fffee8;
+   padding: 14px 20px;
+   margin: 8px 0;
+   margin-left: 84%;
+   border: none;
+   cursor: pointer;
+   width: 64px;
+}
+/*register*/
+
+form.register-form{
+   border-radius: 5px;
+   height: 430px;
+   width: 36%;
+   background-color: #b0a6a6;
+   border-radius: 5px;
+   padding: 20px;
+   margin: 8px 0px 45px 30%;
+   box-sizing: border-box;
+   outline: none;
+   border: 3px solid rgb(29, 159, 186);
+   transition: 0.3s;
+}
+form.register-form > input{
+   border-radius: 5px;
+   width: 68%;
+   border-radius: 5px;
+   padding: 20px;
+   box-sizing: border-box;
+   outline: none;
+   transition: 0.3s;
+   text-align: center;
+   cursor: text;
+}
+form.register-form > input::placeholder{
+   text-align: center;
+}
+form.register-form > input:focus{
+   border-radius: 5px;
+   width: 68%;
+   border-radius: 5px;
+   padding: 20px;
+   box-sizing: border-box;
+   outline: none;
+   transition: 0.3s;
+   text-align: center;
+   cursor: text;
+   border: 3px solid rgb(29, 159, 186);
+
+}
+form.register-form > label{
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 16%;
+   font-size: 18px;
+   color: #5A67B0;
+}
+form.register-form > button[type=submit]{
+   background-color: #4775f2 ;
+   color: #fffee8;
+   padding: 14px 20px;
+   margin: 8px 0;
+   margin-left: 84%;
+   border: none;
+   cursor: pointer;
+   width: 64px;
+}
+.error{
+   color: #ff4000;
+   font-size: 12px;
+}
+.success{
+   color: #5eff00;
+   font-size: 12px;
+}

@@ -1,8 +1,6 @@
-import bookCoures from "./booklist";
-import { User } from "./user";
+import User from "../models/User";
 
 const models = {
-   bookCoures,
    User
 };
 

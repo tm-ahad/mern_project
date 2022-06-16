@@ -1,44 +1,12 @@
-const createJWT = require('../auth/auth').createJWT
+const { createJWT }= require('../auth/auth')
 const {ValidLogin, ValidRegister} = require("../validator/validate")
 const bcrypt = require("bcrypt")
-const { User, bookCoures } = require("../Models/index")
+const { User } = require("../Models/index")
 
 module.exports = {
     //Login with createJWT function
     page0: async (req, res) => {
         res.render("../../views/page0.ejs");
-    },
-    BookCoures: (req, res) => {
-        let { couresName, UserName, age, email, accountName, password, time, pay } = req.body
-        let users = models.booklist.find({});
-
-        if (users.email === email) {
-            res.send("Email already exists")
-        }
-        if (users.password === password) {
-            res.send("Password already exists")
-        } else {
-            bookCoures.create({
-                couresName: couresName,
-                UserName: UserName,
-                age: age,
-                email: email,
-                accountName: accountName,
-                password: password,
-                time: time,
-                pay: pay,
-                date: new Date().getDay()
-            }).then(() => {
-                let dummyText = `
-                    The ${couresName} coures booked.
-                    The pay of this ${couresName} coures is ${pay}$
-                    per month.Happy learning!
-                `
-                res.send(dummyText)
-            }).catch(err => {
-                res.send(`oops! something went wrong that is ${err.message}`)
-            })
-        }
     },
     Login: async (req, res) => {
         let {email, password} = req.body;

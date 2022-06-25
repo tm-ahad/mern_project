@@ -1,7 +1,7 @@
-import User from "../models/User";
+const {User} = require("./user")
 
 const models = {
    User
 };
 
-export default models
+module.exports = models;

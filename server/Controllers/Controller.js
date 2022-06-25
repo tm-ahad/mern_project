@@ -2,16 +2,16 @@ const { createJWT }= require('../auth/auth')
 const {ValidLogin, ValidRegister} = require("../validator/validate")
 const bcrypt = require("bcrypt")
 const { User } = require("../Models/index")
+const JSON_ENV = JSON.parse(require('../config/config.json'))
 
 module.exports = {
-    //Login with createJWT function
     page0: async (req, res) => {
-        res.render("../../views/page0.ejs");
+        res.render("views/page0.ejs");
     },
     Login: async (req, res) => {
-        let {email, password} = req.body;
-        let user = User.findOne(req.body)
-        let valid = ValidLogin(req.body);
+        let {email, password} = req.query;
+        let user = User.findOne(req.query)
+        let valid = ValidLogin(req.query);
         if(valid.error){        
             res.status(400).send(valid.errors);
         }
@@ -26,12 +26,11 @@ module.exports = {
                     res.status(400).send("Password is incorrect");
                 }
                 else{
-                    res.status(200).send(user);
+                    document.cookie
+                    req.user = user
+                    res.status(200).send(user)
                 }
             }
-        }
-        if (new Date.getDay() - user.date === 30) {
-            res.send(`pay ${user.pay} for this months`)
         }
         const token = createJWT(user);
         res.status(200).json({token});
@@ -55,7 +54,7 @@ module.exports = {
                 }
                 else{
 
-                    const hash = await bcrypt.hash(password, 10);
+                    const hash = await bcrypt.hash(password, JSON_ENV.HASHING_CB);
                     const newUser = new User({
                         email: email,
                         password: hash,

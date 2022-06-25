@@ -1,33 +1,27 @@
-const app = require("express")()
-const { config: configENV } = require("dotenv")
-const { router } = require("./Routes/route")
-const midWare = require("morgan")("dev")
-const bodyParser = require("body-parser")
-const { default: mongoose } = require("mongoose")
+const express = require("express")
+const app = express()
+const { router } = require("./Routes/route");
+const midWare = require("morgan")("dev");
+const bodyParser = require("body-parser");
+const path = require("path");
+const JSON_ENV = require('./config/config.json');
+const serve = require("http").createServer;
+const { connectDB } = require("./config/db/connectDB");
+const cors = require("cors");
+const { customMiddleware } = require('./middlewares/custommiddleware')
 
-const [PORT, DB_URL, DB_CONFIG] = [
-    8080,
-    "mongodb://localhost:27017/",
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        dbName: "CRUD_DB",
-    }
-]
-
-configENV({
-    path: `../Environment.env`
-})
-
-app.use(midWare)
+console.log(JSON_ENV)
+app.use(customMiddleware)
+app.use(cors(JSON_ENV.CORS_CONFIG))
 app.use(bodyParser.json())
+app.set("view engine", "ejs")
+app.use(express.static(path.join(__dirname, "views")))
 
 app.get("/", router)
-//listen the server at port 8080
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`)
-    
-    mongoose.connect(DB_URL, DB_CONFIG)
+
+serve(app).listen(JSON_ENV.PORT, JSON_ENV.HOST, () => {
+    console.log(`Server is running at http://localhost:${JSON_ENV.PORT}`)
+    connectDB()
         .then(() => console.log("DB Connected"))
         .catch(err => { throw err })
 })

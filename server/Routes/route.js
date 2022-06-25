@@ -7,7 +7,7 @@ RegisterCB = (req, res) => Register(req, res);
 
 
 router.get('/', page0CB)
-      .post('/api/login', LoginCB)
+      .post('/api/login/user', LoginCB)
       .post('/api/register', RegisterCB)
 
 module.exports = { router }
